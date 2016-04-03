@@ -18,6 +18,7 @@ const canvas = new CanvasVideo({
     canvas: document.querySelector('canvas')
 })
 
+canvas.resize()
 canvas.play()
 ```
 
@@ -25,7 +26,7 @@ canvas.play()
 
 - `play`: start drawing video in canvas using requestAnimationFrame
 - `pause`: cancelAnimationFrame
-- `resize`: apply css styles (top, left, width, height) of `<video>` element to `<canvas>`
+- `resize`: apply css styles (width, height) of `<video>` element to `<canvas>`
 
 ## License
 

@@ -1,6 +1,6 @@
 {
   "name": "canvas-video",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "draws video in canvas element using requestAnimationFrame",
   "main": "index.js",
   "license": "MIT",

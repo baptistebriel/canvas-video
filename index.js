@@ -7,7 +7,7 @@ export default class Video {
         this.video = opt.video
         this.canvas = opt.canvas
         this.context = this.canvas.getContext('2d')
-
+        
         this.rAF = null
         this.playing = false
     }
@@ -35,10 +35,7 @@ export default class Video {
     resize() {
 
         this.bounding = this.video.getBoundingClientRect()
-        
-        this.canvas.style.position = 'absolute'
-        this.canvas.style.top = `${this.bounding.top}px`
-        this.canvas.style.left = `${this.bounding.left}px`
+
         this.canvas.style.width = `${this.bounding.width}px`
         this.canvas.style.height = `${this.bounding.height}px`
         

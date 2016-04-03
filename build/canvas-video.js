@@ -56,9 +56,6 @@ var Video = function () {
 
             this.bounding = this.video.getBoundingClientRect();
 
-            this.canvas.style.position = 'absolute';
-            this.canvas.style.top = this.bounding.top + 'px';
-            this.canvas.style.left = this.bounding.left + 'px';
             this.canvas.style.width = this.bounding.width + 'px';
             this.canvas.style.height = this.bounding.height + 'px';
 
