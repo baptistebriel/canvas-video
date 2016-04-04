@@ -41,6 +41,7 @@
     "url": "https://github.com/BaptisteBriel/canvas-video/issues"
   },
   "dependencies": {
+    "performance-now": "^0.2.0",
     "raf": "^3.2.0"
   }
 }
