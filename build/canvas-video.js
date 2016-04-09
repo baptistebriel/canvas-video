@@ -27,10 +27,8 @@ var Video = function () {
         this.canvas = opt.canvas;
         this.context = this.canvas.getContext('2d');
 
-        this.fps = opt.fps || 24;
-        this.interval = 1000 / this.fps;
-
-        this.perfs = {};
+        this.fps = opt.fps || false;
+        this.interval = this.fps ? 1000 / this.fps : undefined;
 
         this.rAF = null;
         this.playing = false;
@@ -40,11 +38,11 @@ var Video = function () {
         key: 'play',
         value: function play() {
 
-            this.perfs = {
+            this.perfs = this.fps ? {
                 now: undefined,
                 then: (0, _performanceNow2.default)(),
                 delta: undefined
-            };
+            } : {};
 
             this.rAF = (0, _raf2.default)(this.draw.bind(this));
             this.playing = true;
@@ -67,13 +65,12 @@ var Video = function () {
 
             this.rAF = (0, _raf2.default)(this.draw.bind(this));
 
-            this.perfs.now = (0, _performanceNow2.default)();
-            this.perfs.delta = this.perfs.now - this.perfs.then;
+            this.fps && (this.perfs.now = (0, _performanceNow2.default)(), this.perfs.delta = this.perfs.now - this.perfs.then);
 
-            if (this.perfs.delta > this.interval) {
+            if (!this.fps || this.perfs.delta > this.interval) {
 
                 this.context.drawImage(this.video, 0, 0, this.bounding.width, this.bounding.height);
-                this.perfs.then = this.perfs.now - this.perfs.delta % this.interval;
+                this.fps && (this.perfs.then = this.perfs.now - this.perfs.delta % this.interval);
             }
         }
     }, {
