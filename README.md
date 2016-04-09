@@ -22,6 +22,10 @@ canvas.resize()
 canvas.play()
 ```
 
+## options
+
+- `fps`
+
 ## methods
 
 - `play`: start drawing video in canvas using requestAnimationFrame
