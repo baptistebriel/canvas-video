@@ -33,8 +33,10 @@ export default class Video {
         raf.cancel(this.rAF)
         this.playing = false
         
-        delete this.perfs.now
-        delete this.perfs.then
+        if(this.fps) {
+            delete this.perfs.now
+            delete this.perfs.then
+        }
     }
     
     draw() {
